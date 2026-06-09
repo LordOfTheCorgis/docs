@@ -1,0 +1,39 @@
+---
+title: "Backups"
+description: "Snapshot your server files and restore them on demand."
+icon: "box-archive"
+---
+
+The **Backups** tab takes point-in-time snapshots of your server's files. Use them before risky changes, scheduled regularly, or as part of your disaster recovery plan.
+
+## Creating a backup
+
+1. Click **Create Backup**.
+2. Give it a name (e.g. `pre-update-2026-06-09`).
+3. Optionally add **ignored files / paths** (one per line, glob syntax). Useful for skipping huge log dirs.
+4. Optionally lock the backup to prevent automatic rotation.
+5. Click **Start Backup**.
+
+The backup runs in the background. You can keep using the server - it stays online.
+
+## Restoring a backup
+
+Click the row menu and choose **Restore**. You'll be asked whether to:
+
+- **Truncate** the server directory first (clean restore), or
+- **Merge** the backup into the current files (overwrite matching paths only).
+
+The server is stopped during a restore and started again when it completes.
+
+## Downloading and deleting
+
+- **Download** pulls the backup as a `.tar.gz` to your machine.
+- **Delete** is permanent and ignores the lock flag once confirmed.
+
+## Limits and rotation
+
+Each plan includes a number of backup slots. When you hit the cap, the oldest **unlocked** backup is removed when you create a new one. Locked backups are never auto-removed.
+
+<Tip>
+  Pair Backups with [Schedules](/lumi-panel/configuration/schedules) to run a backup every night at 4am — set and forget.
+</Tip>

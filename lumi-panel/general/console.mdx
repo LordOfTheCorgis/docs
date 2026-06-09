@@ -1,0 +1,32 @@
+---
+title: "Console"
+description: "Live server console with power controls and real-time resource usage."
+icon: "terminal"
+---
+
+The **Console** is the landing page for any server in Lumi-Panel. It's where you start, stop, and watch your server in real time.
+
+## Power controls
+
+Four actions live above the console window:
+
+- **Start** - boot the server using its current startup configuration.
+- **Restart** - gracefully stop and immediately start again.
+- **Stop** - send a graceful shutdown signal.
+- **Kill** - force-terminate the process. Use only when the server is unresponsive; this can corrupt save data.
+
+<Warning>
+  **Kill** skips the game's normal shutdown routine. For FiveM, Minecraft, and database-heavy servers, always try **Stop** first.
+</Warning>
+
+## Live output
+
+The console window streams `stdout` and `stderr` from your server process in real time. You can type commands directly into the input bar at the bottom - they're sent straight to the running process.
+
+## Resource usage
+
+The right-hand panel shows live **CPU**, **Memory**, **Disk**, **Network**, and **Uptime** counters, pulled directly from the Wings daemon on the node. These are your dedicated allocations - not shared, not burstable lies.
+
+<Tip>
+  If CPU or memory is consistently pegged, open a ticket. We'll help you size up rather than let your server thrash.
+</Tip>

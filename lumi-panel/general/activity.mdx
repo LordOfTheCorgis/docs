@@ -1,0 +1,26 @@
+---
+title: "Activity"
+description: "Audit log of every action taken on your server."
+---
+
+The **Activity** tab is your server's audit log. Every meaningful action - by you, a subuser, or the system - is recorded here with a timestamp and the IP it came from.
+
+## What gets logged
+
+- Power actions (start, stop, restart, kill)
+- File uploads, edits, deletions, and renames
+- SFTP logins
+- Backup creation, restoration, and deletion
+- Database creation and rotation
+- Subuser invites, permission changes, and removals
+- Schedule creation and execution
+- Startup variable changes
+- Reinstalls
+
+## Why it matters
+
+If something on your server changes unexpectedly - a config got overwritten, a backup disappeared, a subuser got booted - Activity tells you **who**, **when**, and **from where**.
+
+<Tip>
+  Reviewing Activity is the fastest way to spot a compromised account. If you see logins or actions from an IP you don't recognize, rotate your password immediately and open a ticket.
+</Tip>

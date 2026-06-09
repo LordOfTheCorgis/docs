@@ -1,0 +1,78 @@
+---
+title: "Display & Connection Issues"
+description: "Fix servers that boot but don't show in the list or accept players."
+icon: "eye"
+---
+
+Your server is running, the [Console](/lumi-panel/general/console) is happy — but nobody can find or join it. These are the usual suspects.
+
+## Not appearing in the server list
+
+### `sv_master1` is disabled
+
+Make sure `server.cfg` does **not** contain:
+
+```cfg
+sv_master1 ""
+```
+
+That line takes the server off the public list. Remove it (or comment it out) and restart.
+
+### `sv_listingHostOverride` mismatch
+
+If you set `sv_listingHostOverride`, it must point to the **public IP and port** shown in [Network](/lumi-panel/management/network). A mismatch silently hides the server from the master list.
+
+### `endpoint_add_tcp` / `endpoint_add_udp` port conflict
+
+FiveM's default port is `30120`. If you leave that hardcoded in `server.cfg`, you'll collide with another FiveM server on the same node and your server either won't bind or won't be reachable.
+
+You **can** leave the IP as `0.0.0.0` (it just means "bind to all interfaces inside your container"), but the **port must match** the game port shown in [Network](/lumi-panel/management/network):
+
+```cfg
+endpoint_add_tcp "0.0.0.0:YOUR_PORT"
+endpoint_add_udp "0.0.0.0:YOUR_PORT"
+```
+
+Replace `YOUR_PORT` with your assigned game port — not `30120`.
+
+### Onesync / hostname not set
+
+The master list rejects servers missing required convars. Confirm `server.cfg` has:
+
+```cfg
+sv_hostname "Your server name"
+sv_maxclients 32
+set onesync on
+```
+
+<Warning>
+  Setting `sv_maxclients` above **10** without a Cfx **server key / Element Club** subscription can cause custom clothing (and other custom streamed assets) to fail to load for players. If you're not licensed and want more than 10 slots, expect missing or default outfits. Grab a key from [keymaster.fivem.net](https://keymaster.fivem.net) before scaling up.
+</Warning>
+
+## Players get "couldn't connect"
+
+### Wrong port shared
+
+Double-check players are using the **game port**, not the txAdmin port. Both are listed in [Network](/lumi-panel/management/network) — the alias should make it obvious.
+
+### Player banned by the master list
+
+```text
+You were kicked: globally banned
+```
+
+That's a Cfx-level ban, not us. The player needs to appeal through Cfx.
+
+### Server full / queue stuck
+
+If you use a queue resource (e.g. `connectqueue`), a buggy update can lock the queue. Check its console output and restart the resource.
+
+## High ping or rubber-banding
+
+- Confirm the player is connecting to the **closest** datacenter (Dallas or Miami). If they're on the wrong coast, route is the culprit.
+- Check live CPU on the [Console](/lumi-panel/general/console). If CPU is pegged, a resource is hot-looping — narrow it down with `resmon` in-game.
+- Run a traceroute from the player to your server IP and send us the output if you suspect a network issue.
+
+## Still stuck?
+
+Grab the server IP/port and a screenshot of the connection error and [open a ticket](https://lumixsolutions.org).

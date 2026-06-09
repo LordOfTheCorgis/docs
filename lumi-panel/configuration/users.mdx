@@ -1,0 +1,40 @@
+---
+title: "Users"
+description: "Invite subusers and control exactly what they can do."
+icon: "users"
+---
+
+The **Users** tab manages **subusers** — additional Lumi-Panel accounts you grant access to your server. Use it for co-admins, developers, moderators, or anyone else who needs panel access without sharing your password.
+
+## Inviting a subuser
+
+1. Click **New User**.
+2. Enter their email address. They must already have a Lumi-Panel account (or will be prompted to make one).
+3. Tick the permissions you want to grant.
+4. Click **Invite**.
+
+The subuser appears on their dashboard immediately.
+
+## Permissions
+
+Permissions are grouped by tab. Tick only what each subuser needs — principle of least privilege.
+
+| Group | Notable permissions |
+| --- | --- |
+| **Control** | Console view, send commands, power start/stop/restart |
+| **Files** | Read, write, create, delete, archive, SFTP access |
+| **Backups** | Create, read, delete, restore, download |
+| **Allocations** | Read, create, update, delete |
+| **Startup** | Read, update variables, update Docker image |
+| **Databases** | Create, read, update, delete, view password |
+| **Schedules** | Create, read, update, delete |
+| **Settings** | Rename, reinstall |
+| **Activity** | Read |
+
+## Revoking access
+
+Click the row menu and choose **Delete**. The subuser is removed instantly and their next request to the server is rejected.
+
+<Tip>
+  Hand out **Console \+ Files (read)** to debug-only helpers. They can investigate without being able to break anything.
+</Tip>

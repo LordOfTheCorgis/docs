@@ -1,0 +1,31 @@
+---
+title: "Files"
+description: "Browse, upload, edit, and manage your server files from the panel."
+---
+
+The **Files** tab is a full file manager for your server's working directory (`/home/container` inside the container, exposed as `/` in the UI).
+
+## What you can do
+
+- **Navigate** any directory by clicking into it. Breadcrumbs at the top take you back up.
+- **Upload** files via drag-and-drop or the **Upload** button. Large uploads are best handled over SFTP.
+- **Create** new files and folders with the **New File** / **New Folder** buttons.
+- **Edit** text files inline in a Monaco-powered editor with syntax highlighting.
+- **Rename, move, copy, archive, unarchive, or delete** files from the row actions.
+- **Download** any file directly to your machine.
+
+## Archives
+
+Lumi-Panel supports creating and extracting `.zip` and `.tar.gz` archives directly from the file manager. Select files, choose **Archive**, and a new archive is written to the current directory.
+
+## Permissions
+
+File permissions are shown next to each entry and can be edited via the row menu. For most game servers you should leave these alone unless a setup guide says otherwise.
+
+## Use SFTP for big jobs
+
+The browser file manager is great for quick edits. For uploading mods, hauling logs, or syncing whole folders, use SFTP — see [Settings](/lumi-panel/general/settings) for connection details.
+
+<Tip>
+  Editing a config and need it to take effect? Save the file, then **Restart** the server from the [Console](/lumi-panel/general/console). Most games only read configs at boot.
+</Tip>

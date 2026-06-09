@@ -1,0 +1,111 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "Lumix Solutions",
+  "colors": {
+    "primary": "#ff4c4c",
+    "light": "#ff7a7a",
+    "dark": "#cc3d3d"
+  },
+  "favicon": {
+    "light": "/images/favicon-96x96.png",
+    "dark": "/images/favicon-96x96.png"
+  },
+  "navigation": {
+    "pages": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "index",
+          "quickstart"
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "group": "Lumi-Panel",
+        "pages": [
+          "lumi-panel/overview",
+          {
+            "group": "General",
+            "pages": [
+              "lumi-panel/general/console",
+              "lumi-panel/general/settings",
+              "lumi-panel/general/activity"
+            ]
+          },
+          {
+            "group": "Management",
+            "pages": [
+              "lumi-panel/management/files",
+              "lumi-panel/management/databases",
+              "lumi-panel/management/backups",
+              "lumi-panel/management/network.mdx",
+              "lumi-panel/management/server-importer.mdx"
+            ]
+          },
+          {
+            "group": "Configuration",
+            "pages": [
+              "lumi-panel/configuration/schedules.mdx",
+              "lumi-panel/configuration/users.mdx",
+              "lumi-panel/configuration/startup.mdx"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "FiveM",
+        "pages": [
+          "games/fivem/overview.mdx",
+          "games/fivem/startup-issues.mdx",
+          "games/fivem/display-issues.mdx",
+          "games/fivem/database-setup.mdx",
+          "games/fivem/txadmin.mdx"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/images/logoalt.png",
+    "dark": "/images/logo.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:hi@mintlify.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://app.mintlify.com"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/mintlify",
+      "github": "https://github.com/mintlify",
+      "linkedin": "https://linkedin.com/company/mintlify"
+    }
+  },
+  "icons": {
+    "library": "fontawesome"
+  },
+  "appearance": {
+    "default": "system"
+  }
+}

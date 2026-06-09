@@ -1,0 +1,29 @@
+---
+title: "Settings"
+description: "Rename your server, view connection details, and reinstall when needed."
+---
+
+The **Settings** tab is the catch-all for server identity and lifecycle actions.
+
+## Server details
+
+- **Server name** - the label shown across Lumi-Panel. Change it any time.
+- **Server ID / UUID** - unique identifiers for support tickets and API access.
+- **Node** - which Lumix Solutions datacenter your server lives on.
+
+## SFTP details
+
+Use these credentials with any SFTP client (FileZilla, WinSCP, Cyberduck, the `sftp` CLI) to manage files outside the browser.
+
+- **Host** - the node's hostname.
+- **Port** - SFTP port (not the same as your game port).
+- **Username** - `your-username.server-id`.
+- **Password** - your Lumi-Panel account password.
+
+## Reinstall server
+
+Reinstalls the server's egg from scratch. This re-runs the install script and resets game files to defaults.
+
+<Warning>
+  Reinstalling does **not** wipe your `/server` files by default, but it can overwrite configs and binaries. Take a [backup](/lumi-panel/management/backups) first.
+</Warning>

@@ -1,0 +1,35 @@
+---
+title: "Server Importer"
+description: "Pull an existing server into Lumi-Panel over SFTP."
+icon: "download"
+---
+
+The **Server Importer** is a Lumix Solutions addition to Pterodactyl. It copies files from another host straight into your Lumi-Panel server over SFTP — no archives to upload, no manual file shuffling.
+
+## Fields
+
+- **Host** — the source server's SFTP hostname or IP.
+- **Port** — SFTP port (defaults to `22`).
+- **Username** — SFTP user on the source server.
+- **Password** — SFTP password for that user.
+- **Source path** — directory on the source to copy from. Defaults to `/`.
+- **Destination path** — directory on your Lumi-Panel server to copy into. Defaults to `/`.
+- **Protocol** — **SFTP** (the only supported protocol).
+
+Files are copied recursively from the source path into the destination path.
+
+## Running an import
+
+1. Stop your server from the [Console](/lumi-panel/general/console) so files aren't being written during the copy.
+2. Fill in the fields above.
+3. Click **Start Import**.
+
+Progress streams live. When it finishes, start the server back up.
+
+<Tip>
+  Migrating a busy server? Run the importer once to seed files, then a second short import during a maintenance window to catch any last-minute changes.
+</Tip>
+
+<Note>
+  Only files are imported. Subusers, schedules, allocations, and databases live in Lumi-Panel and need to be set up here — see [Users](/lumi-panel/configuration/users), [Schedules](/lumi-panel/configuration/schedules), [Network](/lumi-panel/management/network), and [Databases](/lumi-panel/management/databases).
+</Note>

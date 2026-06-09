@@ -1,0 +1,69 @@
+---
+title: "Startup Issues"
+description: "Diagnose and fix FiveM servers that won't boot."
+icon: "circle-exclamation"
+---
+
+When a FiveM server won't start, the [Console](/lumi-panel/general/console) is your best friend — the error is almost always on the last 20–30 lines. Below are the issues we see most often.
+
+## Invalid or missing license key
+
+```text
+Server requires a valid sv_licenseKey to start.
+```
+
+Generate a key at [keymaster.fivem.net](https://keymaster.fivem.net), tied to **this server's IP** (the one shown in [Network](/lumi-panel/management/network)). Then set it in the [Startup](/lumi-panel/configuration/startup) tab under `FIVEM_LICENSE`, or directly in `server.cfg`:
+
+```cfg
+sv_licenseKey "cfxk_xxxxxxxxxxxxxxxxxxxx_xxxx"
+```
+
+Restart the server after saving.
+
+## License key bound to a different IP
+
+```text
+This server's license key does not match the configured server.
+```
+
+Keymaster keys are locked to one IP. If your server was migrated or you're reusing a key from another host, regenerate it against the current Lumi-Panel IP.
+
+## Artifact / build mismatch
+
+```text
+couldn't load resource ...: script runtime not found
+```
+
+Resources built for newer Cfx artifacts won't run on older ones (and vice versa). Update the artifact in the [Startup](/lumi-panel/configuration/startup) tab — pick the latest **recommended** build, not bleeding-edge unless you know you need it. Restart.
+
+## Resource failed to start
+
+```text
+Couldn't start resource <name>.
+```
+
+Look a few lines above the error — the actual cause (missing dependency, syntax error, missing file) is logged there. Common fixes:
+
+- Add the missing `ensure` line for a dependency in `server.cfg`.
+- Re-upload the resource over [SFTP](/lumi-panel/general/settings) — partial uploads cause Lua syntax errors.
+- Check resource manifest (`fxmanifest.lua`) for typos.
+
+## Database connection refused on boot
+
+```text
+[oxmysql] Failed to connect: ECONNREFUSED
+```
+
+The DB isn't reachable from your server. Walk through [Database Setup](/games/fivem/database-setup) — the most common cause is the connection string pointing at `localhost` instead of the Lumi-Panel database endpoint.
+
+## Out of memory on boot
+
+```text
+fxserver killed (out of memory)
+```
+
+You're hitting your plan's RAM limit while loading resources. Either trim resources or upgrade the plan — open a ticket and we'll size you up.
+
+## Still stuck?
+
+Copy the last ~50 lines of the console and drop them in a support ticket or our Discord. A real engineer will respond — not a script reader.
