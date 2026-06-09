@@ -3,7 +3,7 @@ title: "Display & Connection Issues"
 description: "Fix servers that boot but don't show in the list or accept players."
 ---
 
-Your server is running, the [Console](/lumi-panel/general/console) is happy — but nobody can find or join it. These are the usual suspects.
+Your server is running, the [Console](/lumi-panel/general/console) is happy - but nobody can find or join it. These are the usual suspects.
 
 ## Not appearing in the server list
 
@@ -32,7 +32,7 @@ endpoint_add_tcp "0.0.0.0:YOUR_PORT"
 endpoint_add_udp "0.0.0.0:YOUR_PORT"
 ```
 
-Replace `YOUR_PORT` with your assigned game port — not `30120`.
+Replace `YOUR_PORT` with your assigned game port - not `30120`.
 
 ### Onesync / hostname not set
 
@@ -52,7 +52,7 @@ set onesync on
 
 ### Wrong port shared
 
-Double-check players are using the **game port**, not the txAdmin port. Both are listed in [Network](/lumi-panel/management/network) — the alias should make it obvious.
+Double-check players are using the **game port**, not the txAdmin port. Both are listed in [Network](/lumi-panel/management/network) - the alias should make it obvious.
 
 ### Player banned by the master list
 
@@ -69,7 +69,7 @@ If you use a queue resource (e.g. `connectqueue`), a buggy update can lock the q
 ## High ping or rubber-banding
 
 - Confirm the player is connecting to the **closest** datacenter (Dallas or Miami). If they're on the wrong coast, route is the culprit.
-- Check live CPU on the [Console](/lumi-panel/general/console). If CPU is pegged, a resource is hot-looping — narrow it down with `resmon` in-game.
+- Check live CPU on the [Console](/lumi-panel/general/console). If CPU is pegged, a resource is hot-looping - narrow it down with `resmon` in-game.
 - Run a traceroute from the player to your server IP and send us the output if you suspect a network issue.
 
 ## Still stuck?

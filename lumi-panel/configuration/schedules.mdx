@@ -9,7 +9,7 @@ The **Schedules** tab is cron for your server. Each schedule is a collection of 
 
 1. Click **New Schedule**.
 2. Give it a name (e.g. `Nightly restart`).
-3. Set the cron expression — minute, hour, day of month, month, day of week. The UI defaults to standard 5-field cron.
+3. Set the cron expression - minute, hour, day of month, month, day of week. The UI defaults to standard 5-field cron.
 4. Toggle **Only when server is online** if it shouldn't run while stopped.
 5. Toggle **Enabled** when you're ready for it to fire.
 6. Save.
@@ -18,9 +18,9 @@ The **Schedules** tab is cron for your server. Each schedule is a collection of 
 
 Open the schedule and add one or more tasks. Each task is one of:
 
-- **Send command** — push a string into the server console (e.g. `say Restarting in 5 minutes`).
-- **Send power action** — start, restart, stop, or kill.
-- **Create backup** — trigger a [backup](/lumi-panel/management/backups). Optionally pass an ignored-files list.
+- **Send command** - push a string into the server console (e.g. `say Restarting in 5 minutes`).
+- **Send power action** - start, restart, stop, or kill.
+- **Create backup** - trigger a [backup](/lumi-panel/management/backups). Optionally pass an ignored-files list.
 
 Tasks within a schedule run in order, with an optional **delay** (seconds) between each.
 
@@ -30,23 +30,23 @@ Tasks within a schedule run in order, with an optional **delay** (seconds) betwe
   <Accordion title="Nightly restart with warning">
     Cron: `0 4 * * *` (every day at 04:00)
 
-    1. Send command — `say Restarting in 5 minutes`
+    1. Send command - `say Restarting in 5 minutes`
     2. Wait 240 seconds
-    3. Send command — `say Restarting in 60 seconds`
+    3. Send command - `say Restarting in 60 seconds`
     4. Wait 60 seconds
-    5. Send power action — restart
+    5. Send power action - restart
   </Accordion>
 
   <Accordion title="Hourly autosave (Minecraft)">
     Cron: `0 * * * *`
 
-    1. Send command — `save-all`
+    1. Send command - `save-all`
   </Accordion>
 
   <Accordion title="Daily backup">
     Cron: `30 3 * * *`
 
-    1. Create backup — ignore `logs/*` and `cache/*`
+    1. Create backup - ignore `logs/*` and `cache/*`
   </Accordion>
 </AccordionGroup>
 

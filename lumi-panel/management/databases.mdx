@@ -3,30 +3,30 @@ title: "Databases"
 description: "Provision MariaDB databases for your server and rotate credentials."
 ---
 
-The **Databases** tab lets you spin up MariaDB databases on the same node as your server — ideal for FiveM resources, Minecraft plugins, bots, and web apps that need persistent storage.
+The **Databases** tab lets you spin up MariaDB databases on the same node as your server - ideal for FiveM resources, Minecraft plugins, bots, and web apps that need persistent storage.
 
 ## Creating a database
 
 1. Click **New Database**.
-2. Choose a **name** (used as a suffix — the full DB name will be prefixed with your server ID, e.g. `s12_yourname`).
+2. Choose a **name** (used as a suffix - the full DB name will be prefixed with your server ID, e.g. `s12_yourname`).
 3. Optionally restrict the **connection from** field to a specific IP. Leave as `%` to allow any host.
 4. Click **Create Database**.
 
-Lumi-Panel returns the following — keep them safe:
+Lumi-Panel returns the following - keep them safe:
 
-- **Endpoint** — hostname and port to connect to.
-- **Connections from** — the IP/host allowlist.
+- **Endpoint** - hostname and port to connect to.
+- **Connections from** - the IP/host allowlist.
 - **Username**
 - **Password** (click the eye icon to reveal)
 - **JDBC connection string**
 
 ## Rotating the password
 
-Click the refresh icon next to the password to generate a new one. The old password is immediately invalidated — update any application configs before the next restart.
+Click the refresh icon next to the password to generate a new one. The old password is immediately invalidated - update any application configs before the next restart.
 
 ## Limits
 
-The number of databases per server depends on your plan. If you hit the limit, open a ticket and we'll size you up — no upsell games.
+The number of databases per server depends on your plan. If you hit the limit, open a ticket and we'll size you up - no upsell games.
 
 ## Managing your database with phpMyAdmin
 

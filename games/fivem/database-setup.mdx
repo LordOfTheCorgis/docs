@@ -11,7 +11,7 @@ In Lumi-Panel:
 
 1. Open **Databases**.
 2. Click **New Database**, give it a name like `fivem`, leave **connection from** as `%`.
-3. Save the **Endpoint**, **Username**, and **Password** — you'll need them next.
+3. Save the **Endpoint**, **Username**, and **Password** - you'll need them next.
 
 You can also manage it through phpMyAdmin at [db.lumixsolutions.org](https://db.lumixsolutions.org) using the same credentials.
 
@@ -44,7 +44,7 @@ ensure mysql-async
 When you run through txAdmin's setup wizard (or change the database later under **Settings → Server**), it asks for the database host, port, username, password, and database name separately.
 
 <Warning>
-  Use the **Endpoint** from the Databases tab — not your server's game IP. Your FiveM server and the database run on **different IPs**. Typing your server's IP here will fail to connect every time.
+  Use the **Endpoint** from the Databases tab - not your server's game IP. Your FiveM server and the database run on **different IPs**. Typing your server's IP here will fail to connect every time.
 </Warning>
 
 The Lumi-Panel **Endpoint** looks like `DB_HOST:DB_PORT` (for example `db.example.lumixsolutions.org:3306`). Split it into the two fields txAdmin asks for:
@@ -63,7 +63,7 @@ If you'd rather paste a single string, the **JDBC connection string** field in L
 jdbc:mysql://DB_USERNAME:DB_PASSWORD@DB_HOST:DB_PORT/DB_NAME
 ```
 
-Use that as a reference — the values between the symbols are exactly what each txAdmin field wants.
+Use that as a reference - the values between the symbols are exactly what each txAdmin field wants.
 
 ## 4. Restart
 
@@ -78,5 +78,5 @@ If you see `ECONNREFUSED`, `Access denied`, or `Unknown database`, walk through 
 ## Best practices
 
 - **Never commit credentials.** Keep `server.cfg` out of public repos, or use a separate `secrets.cfg` that's gitignored.
-- **Rotate the password** from the Databases tab if you suspect a leak — then update `server.cfg` and restart.
+- **Rotate the password** from the Databases tab if you suspect a leak - then update `server.cfg` and restart.
 - **Back up before big changes.** Use phpMyAdmin's **Export** or trigger a panel-wide [Backup](/lumi-panel/management/backups) before running schema migrations.

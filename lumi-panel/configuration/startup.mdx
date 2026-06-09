@@ -7,7 +7,7 @@ The **Startup** tab controls how your server boots. It exposes the variables and
 
 ## Startup command
 
-The full command Wings runs to launch your server. Variables in the command are expanded from the fields below — for example a FiveM egg's command might look like:
+The full command Wings runs to launch your server. Variables in the command are expanded from the fields below - for example a FiveM egg's command might look like:
 
 ```bash
 ./run.sh +set sv_licenseKey {{FIVEM_LICENSE}} +set serverProfile {{SERVER_PROFILE}}
@@ -19,17 +19,17 @@ The command itself is locked (only the egg defines it), but the variables it ref
 
 Each variable shows:
 
-- **Name** — human-readable label.
-- **Description** — what the variable does.
-- **Input** — the editable value. Validation rules (numeric, regex, required) come from the egg.
+- **Name** - human-readable label.
+- **Description** - what the variable does.
+- **Input** - the editable value. Validation rules (numeric, regex, required) come from the egg.
 
 Common examples:
 
-- **FiveM** — `FIVEM_LICENSE`, `SERVER_PROFILE`, `MAX_PLAYERS`
-- **Minecraft (Paper)** — `MINECRAFT_VERSION`, `BUILD_NUMBER`, `SERVER_JARFILE`
-- **Node.js app** — `MAIN_FILE`, `NODE_VERSION`, `AUTO_UPDATE`
-- **Python app** — `PY_FILE`, `PYTHON_VERSION`, `REQUIREMENTS_FILE`
-- **TeamSpeak** — `TS_VERSION`, `LICENSE_ACCEPTED`
+- **FiveM** - `FIVEM_LICENSE`, `SERVER_PROFILE`, `MAX_PLAYERS`
+- **Minecraft (Paper)** - `MINECRAFT_VERSION`, `BUILD_NUMBER`, `SERVER_JARFILE`
+- **Node.js app** - `MAIN_FILE`, `NODE_VERSION`, `AUTO_UPDATE`
+- **Python app** - `PY_FILE`, `PYTHON_VERSION`, `REQUIREMENTS_FILE`
+- **TeamSpeak** - `TS_VERSION`, `LICENSE_ACCEPTED`
 
 ## Docker image
 
@@ -38,7 +38,7 @@ A dropdown of approved container images for this egg. Switching images is useful
 - A game ships a new version that needs a newer runtime.
 - You want to test against a different Node.js or Java version.
 
-Changes take effect on the **next start** — not immediately. Restart the server to apply.
+Changes take effect on the **next start** - not immediately. Restart the server to apply.
 
 <Warning>
   Changing variables and Docker images can break your server if you pick incompatible combinations (e.g. Java 8 image for a Minecraft 1.20 jar). Test changes with a backup in hand.

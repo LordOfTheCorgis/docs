@@ -9,8 +9,8 @@ txAdmin is the web-based admin panel built into FiveM. Every Lumi-Panel FiveM se
 
 Open the [Network](/lumi-panel/management/network) tab. You'll see two allocations:
 
-- **Game port** — what players connect to.
-- **txAdmin port** — usually aliased `tx` or `txadmin`.
+- **Game port** - what players connect to.
+- **txAdmin port** - usually aliased `tx` or `txadmin`.
 
 txAdmin is reachable in your browser at:
 
@@ -26,7 +26,7 @@ On first boot, the [Console](/lumi-panel/general/console) prints a one-time PIN 
 [txAdmin] PIN to setup the admin account: 1234
 ```
 
-Open the txAdmin URL above, enter the PIN, and create your admin account. Save the credentials — the PIN won't be reprinted.
+Open the txAdmin URL above, enter the PIN, and create your admin account. Save the credentials - the PIN won't be reprinted.
 
 ## Lost the PIN or locked out?
 
@@ -36,13 +36,13 @@ From the [Console](/lumi-panel/general/console), run:
 txaPin
 ```
 
-That re-generates a fresh PIN and prints it. If the console isn't responsive, [open a ticket](https://lumixsolutions.org) — we can reset txAdmin from the host side.
+That re-generates a fresh PIN and prints it. If the console isn't responsive, [open a ticket](https://lumixsolutions.org) - we can reset txAdmin from the host side.
 
 ## Recommended settings
 
-- **Discord integration** — link a Discord webhook for server alerts (crashes, restarts).
-- **Scheduled restarts** — prefer Lumi-Panel [Schedules](/lumi-panel/configuration/schedules) over txAdmin's built-in scheduler so they fire even if txAdmin is unresponsive.
-- **2FA** — enable on every admin account.
+- **Discord integration** - link a Discord webhook for server alerts (crashes, restarts).
+- **Scheduled restarts** - prefer Lumi-Panel [Schedules](/lumi-panel/configuration/schedules) over txAdmin's built-in scheduler so they fire even if txAdmin is unresponsive.
+- **2FA** - enable on every admin account.
 
 <Warning>
   Don't expose txAdmin to the public internet without a strong password and 2FA. Anyone with the URL and credentials can stop your server, ban players, and edit your `server.cfg`.
