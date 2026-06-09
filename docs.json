@@ -40,16 +40,16 @@
               "lumi-panel/management/files",
               "lumi-panel/management/databases",
               "lumi-panel/management/backups",
-              "lumi-panel/management/network.mdx",
-              "lumi-panel/management/server-importer.mdx"
+              "lumi-panel/management/network",
+              "lumi-panel/management/server-importer"
             ]
           },
           {
             "group": "Configuration",
             "pages": [
-              "lumi-panel/configuration/schedules.mdx",
-              "lumi-panel/configuration/users.mdx",
-              "lumi-panel/configuration/startup.mdx"
+              "lumi-panel/configuration/schedules",
+              "lumi-panel/configuration/users",
+              "lumi-panel/configuration/startup"
             ]
           }
         ]
@@ -58,10 +58,10 @@
         "group": "FiveM",
         "pages": [
           "games/fivem/overview.mdx",
-          "games/fivem/startup-issues.mdx",
-          "games/fivem/display-issues.mdx",
-          "games/fivem/database-setup.mdx",
-          "games/fivem/txadmin.mdx"
+          "games/fivem/startup-issues",
+          "games/fivem/display-issues",
+          "games/fivem/database-setup",
+          "games/fivem/txadmin"
         ]
       }
     ]
