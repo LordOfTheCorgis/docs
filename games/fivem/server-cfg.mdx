@@ -9,11 +9,26 @@ Every line is either a command (`sv_hostname`), a convar (`set`, `sets`, `setr`)
 
 ## Server name (sv_hostname)
 
-This is the name that shows in the FiveM server browser. It supports color codes (`^1` red, `^2` green, etc.) and emojis.
+This is the name that shows in the FiveM server browser. It supports color codes (`^` followed by a digit) and emojis.
 
 ```cfg
 sv_hostname "^1Lumix ^7Roleplay ^0| ^4discord.gg/lumix"
 ```
+
+A color code applies to every character after it until the next code. The full set:
+
+| Code | Color |
+| --- | --- |
+| `^0` | White |
+| `^1` | Red |
+| `^2` | Green |
+| `^3` | Yellow |
+| `^4` | Blue |
+| `^5` | Light Blue |
+| `^6` | Purple |
+| `^7` | White |
+| `^8` | Orange |
+| `^9` | Grey |
 
 `sv_projectName` and `sv_projectDesc` are separate - they're what txAdmin shows on its dashboard, not the public list:
 
