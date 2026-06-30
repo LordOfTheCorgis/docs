@@ -1,0 +1,139 @@
+---
+title: "Server Configuration"
+description: "Understand server.cfg and set your server name, icon/logo, banners, and tags."
+---
+
+`server.cfg` is the file FiveM reads on boot. It sets your server name, player slots, what shows in the server browser, which resources start, and your license keys. On Lumix Solutions you edit it from the [Files](/lumi-panel/management/files) tab (it lives in your server root) or through txAdmin's built-in cfg editor.
+
+Every line is either a command (`sv_hostname`), a convar (`set`, `sets`, `setr`), or a resource directive (`ensure`, `start`). Lines starting with `#` are comments and are ignored.
+
+## Server name (sv_hostname)
+
+This is the name that shows in the FiveM server browser. It supports color codes (`^1` red, `^2` green, etc.) and emojis.
+
+```cfg
+sv_hostname "^1Lumix ^7Roleplay ^0| ^4discord.gg/lumix"
+```
+
+`sv_projectName` and `sv_projectDesc` are separate - they're what txAdmin shows on its dashboard, not the public list:
+
+```cfg
+sets sv_projectName "Lumix Roleplay"
+sets sv_projectDesc "Serious RP. Custom scripts. Active staff."
+```
+
+## Server icon / logo
+
+The icon is the small image shown next to your server in the FiveM browser. Drop the file in your server root and load it with `load_server_icon`:
+
+```cfg
+load_server_icon myLogo.png
+```
+
+<Warning>
+  The icon **must** be a **96x96 pixel PNG**. Any other size or format is silently ignored and FiveM falls back to the default Cfx icon. Resize it before uploading - the game does not scale it for you.
+</Warning>
+
+Upload the PNG to your server root through the [Files](/lumi-panel/management/files) tab (same folder as `server.cfg`), then reference it by filename. If it's in a subfolder, include the path: `load_server_icon images/myLogo.png`. Restart for the change to take effect.
+
+## Connection banners
+
+Banners are the larger images players see while connecting and on your server's info card. Unlike the icon, these are loaded from a **URL**, not a local file:
+
+```cfg
+sets banner_connecting "https://your-host.com/connecting.png"
+sets banner_detail "https://your-host.com/detail.png"
+```
+
+Host the images somewhere public (a CDN, imgur direct link, or your website). `banner_connecting` shows on the loading screen; `banner_detail` shows on the server's detail panel in the browser.
+
+## Tags, locale, and discovery
+
+`sets tags` controls the searchable tags in the browser. `sets locale` sets your server's region/language flag:
+
+```cfg
+sets tags "roleplay, esx, economy, custom, whitelist"
+sets locale "en-US"
+```
+
+## Player slots and OneSync
+
+`sv_maxClients` caps concurrent players (max 2048 with OneSync). OneSync is required for anything above 32 slots and for most modern frameworks:
+
+```cfg
+sv_maxClients 64
+set onesync on
+```
+
+<Note>
+  Slot count is also bound to your plan's resources. Setting `sv_maxClients 128` won't help if your CPU/RAM can't carry the load - check your plan or [open a ticket](https://lumixsolutions.org) before raising it.
+</Note>
+
+## License keys and endpoints
+
+Your server needs a Cfx license key to boot. Generate one at [keymaster.fivem.net](https://keymaster.fivem.net) and paste it in:
+
+```cfg
+sv_licenseKey YOUR_KEY_HERE
+```
+
+The endpoint lines tell FiveM which port to listen on. On Lumix Solutions these are pre-filled to match your allocation from the [Network](/lumi-panel/management/network) tab - don't change them unless support tells you to:
+
+```cfg
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+```
+
+<Warning>
+  Never share or commit your `sv_licenseKey` or `steam_webApiKey`. If a key leaks, revoke it in keymaster and generate a new one. See [Database Setup → Best practices](/games/fivem/database-setup#best-practices) for keeping secrets out of public repos.
+</Warning>
+
+## Starting resources
+
+`ensure` starts a resource and is the modern default (it also handles restarts cleanly). Order matters - frameworks and dependencies must start before the scripts that rely on them:
+
+```cfg
+ensure mapmanager
+ensure chat
+ensure spawnmanager
+ensure oxmysql
+ensure es_extended
+ensure my-custom-script
+```
+
+## A minimal working example
+
+```cfg
+# Identity
+sv_hostname "^1Lumix ^7Roleplay"
+sets sv_projectName "Lumix Roleplay"
+sets sv_projectDesc "Serious RP. Custom scripts. Active staff."
+load_server_icon myLogo.png
+
+# Discovery
+sets tags "roleplay, esx, custom"
+sets locale "en-US"
+sets banner_connecting "https://your-host.com/connecting.png"
+
+# Slots
+sv_maxClients 64
+set onesync on
+
+# Database (see Database Setup)
+set mysql_connection_string "mysql://USER:PASS@HOST:PORT/DB?charset=utf8mb4"
+
+# Resources
+ensure oxmysql
+ensure es_extended
+
+# Keys (keep private)
+sv_licenseKey YOUR_KEY_HERE
+
+# Endpoints (pre-set by Lumix - leave as-is)
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+```
+
+## Applying changes
+
+`server.cfg` is only read on boot. After any edit, restart from the [Console](/lumi-panel/general/console) for it to take effect. If the server won't come back up, walk through [Startup Issues](/games/fivem/startup-issues) - a malformed cfg line is the most common cause.

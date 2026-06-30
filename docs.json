@@ -58,6 +58,7 @@
         "group": "FiveM",
         "pages": [
           "games/fivem/overview",
+          "games/fivem/server-cfg",
           "games/fivem/startup-issues",
           "games/fivem/display-issues",
           "games/fivem/database-setup",
